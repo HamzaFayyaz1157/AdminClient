@@ -1,0 +1,27 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+  <!-- Header -->
+  <header class="header">
+    <h1 class="app-title">📋 Application Menus</h1>
+  </header>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading menus...</p>
+  </div>
+
+  <!-- Menu Cards -->
+  <div *ngIf="!loading" class="menu-grid">
+    <div class="menu-card" *ngFor="let menu of menus">
+      <div class="menu-icon">📁</div>
+      <div class="menu-id">{{ menu.menuid }}</div>
+      <div class="menu-title">{{ menu.menuTitle }}</div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!loading && menus.length === 0" class="no-data">
+    <p>No menus found</p>
+  </div>
+</div>
