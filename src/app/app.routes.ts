@@ -3,9 +3,12 @@ import { MainComponent } from './LayOut/main/main.component';
 
 import { CompanyComponent } from './LayOut/Setup/company/company.component';
 import { LocationComponent } from './LayOut/Setup/location/location.component';
+import { DepartmentComponent } from './LayOut/Setup/department/department.component';
+
 export const routes: Routes = [
     //{ path: '', component: MainComponent },
      //{ path: '', component: CompanyComponent },
 
-     { path: '', component: LocationComponent }
+     //{ path: '', component: LocationComponent },
+        { path: '', component: DepartmentComponent }
 ];
