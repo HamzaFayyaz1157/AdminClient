@@ -1,0 +1,120 @@
+
+
+
+<div class="form-bar">
+    <div class="form-title">
+      <h2>{{ formName }}</h2>
+    </div>
+    <div class="form-actions">
+
+      <button class="form-button view-button" [disabled]="!userPermissions.canView" (click)="onView()">
+        <i class="fas fa-street-view"></i> View
+      </button>
+      <button class="form-button add-button" [disabled]="!userPermissions.canAddMore" (click)="onAddMore()">
+        <i class="fas fa-plus-square"></i> Add More
+      </button>
+      <button class="form-button cancel-button" [disabled]="!userPermissions.canCancel" (click)="onCancel()">
+        <i class="fas fa-ban"></i> Cancel
+      </button>
+      <button class="form-button search-button" [disabled]="!userPermissions.canSearch" (click)="onSearch()">
+        <i class="fas fa-search"></i> Search
+      </button>
+      <button class="form-button delete-button" [disabled]="!userPermissions.canDelete" (click)="onDelete()">
+        <i class="fas fa-trash-o"></i> Delete
+      </button>
+      <button class="form-button save-button" [disabled]="!userPermissions.canSave || isSaving" (click)="onSave()">
+        <i class="fas fa-save"></i> Save
+      </button>
+      <!-- Edit button with icon -->
+      <button class="form-button edit-button" [disabled]="!userPermissions.canEdit || isEdit" (click)="onEdit()">
+        <i class="fas fa-edit"></i> Edit
+      </button>
+      <button class="form-button print-button" [disabled]="!userPermissions.canPrint" (click)="onPrint()">
+        <i class="fas fa-plus-square"></i> Print
+      </button>
+      <button class="form-button close-button" [disabled]="!userPermissions.canClose" (click)="onClose()">
+        <i class="fas fa-window-close"></i> Close
+      </button>
+    </div>
+  </div>
+  
+ 
+
+
+
+
+
+  <!-- ----------------------------------------- -->
+
+  <div class="form-container">
+    <form [formGroup]="formGroup">
+      <div class="form-row">
+        <!-- First Text Field -->
+        <!-- <div class="form-group">
+          <label for="Daycode">Code</label>
+          <input id="Daycode" formControlName="Daycode"  type="text" class="form-control small-text-field" style="width: 100px ;">
+        </div> -->
+  
+        <div class="form-group">
+          <label for="Location Id">Location Id<span class="text-danger"> *</span></label>
+          
+          <input id="Location Id" formControlName="Id" type="text" class="form-control small-text-field" 
+          [ngClass]="{'is-invalid': formGroup.get('Location Id')?.invalid && formGroup.get('Id')?.touched}">
+          <div *ngIf="formGroup.get('Id')?.invalid && formGroup.get('Id')?.touched" class="text-danger" style="font-size: 0.7em;">
+            Code Id is required.
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label for="LocationName">Location Name<span class="text-danger"> *</span></label>
+          <input id="LocationName" formControlName="LocationName" type="text" class="form-control small-text-field"  
+          [ngClass]="{'is-invalid': formGroup.get('LocationName')?.invalid && formGroup.get('LocationName')?.touched}">
+          <div *ngIf="formGroup.get('LocationName')?.invalid && formGroup.get('LocationName')?.touched" class="text-danger" style="font-size: 0.7em;">
+            Location Name is required.
+          </div>
+        
+        </div>
+      </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<!-- -------Search Form----------------- -->
+<div class="search-modal" *ngIf="isSearchModalOpen">
+  <!-- Close Button -->
+  
+ 
+ <div class="search-container">
+  
+   <button class="grdclose-button" (click)="isSearchModalOpen = false">
+     &times; <!-- You can use an icon or text -->
+   </button>
+
+   
+   <!-- ag-Grid Section -->
+   <div class="ag-theme-alpine" style="height: 400px; width: 100%;">
+     <ag-grid-angular
+       style="width: 100%; height: 100%;"
+       [rowData]="rowData"
+       [columnDefs]="columnDefs"
+       [pagination]="true"
+       [paginationPageSize]="20"
+       [defaultColDef]="defaultColDef"
+       [rowHeight]="rowHeight"
+       class="ag-theme-alpine"
+       [floatingFilter]="true"
+       (rowDoubleClicked)="onRowDoubleClicked($event)">
+     </ag-grid-angular>
+   </div>
+ </div>
+</div>
+

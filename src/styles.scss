@@ -1,1 +1,648 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@import "bootstrap/scss/bootstrap"; /* Bootstrap SCSS */
+@import "bootstrap-icons/font/bootstrap-icons.css"; /* Bootstrap Icons */
+
+/* You can add global styles to this file, and also import other style files */
+body{
+  padding: 0;
+  margin: 0;
+  /* background: url('../src/assets/images/Login.png') no-repeat center center fixed; */
+}
+
+
+
+
+
+
+/* ----------------Form Bar-------------------------------------- */
+.form-bar {
+  display: flex; /* Use flexbox for the form bar */
+  justify-content: space-between; /* Space between title and actions */
+  align-items: center; /* Center vertically */
+  background-color: #f0f8ff; /* Light background color */
+  padding: 5px;
+  border: 1px solid #007bff; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px; /* Spacing from other elements */
+}
+
+.form-title h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #007bff; /* Title color */
+}
+
+.form-actions {
+  display: flex; /* Use flexbox for buttons */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Button styles */
+.form-button {
+  display: flex; /* Use flexbox for button content */
+  align-items: center; /* Center icon and text vertically */
+  height: 30px;
+  padding: 10px 20px; /* Padding for buttons */
+  font-size: 13px; /* Font size */
+  border: none; /* Remove default border */
+  border-radius: 7px; /* Rounded corners for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Button icons */
+.form-button i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* Save button styles */
+.save-button {
+  background-color: #007bff; /* Blue background */
+  color: white; /* Text color */
+}
+
+.save-button:disabled {
+  background-color: #b0d4ff; /* Light blue when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+.search-button {
+  background-color: #4f43a9; /* Green background */
+  color: white; /* Text color */
+}
+.search-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+.add-button {
+  background-color: #4f43a9; /* Green background */
+  color: white; /* Text color */
+}
+
+
+.filter-button {
+background-color: #533948; /* Green background */
+color: white; /* Text color */
+}
+
+.add-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+.print-button {
+  background-color: #13b2b7; /* Green background */
+  color: white; /* Text color */
+}
+.print-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+.view-button {
+  background-color: #6f63bb; /* Green background */
+  color: white; /* Text color */
+}
+.view-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+.cancel-button {
+  background-color: #ca3d4b; /* Green background */
+  color: white; /* Text color */
+}
+.cancel-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+.delete-button {
+  background-color: #ca3d4b; /* Green background */
+  color: white; /* Text color */
+}
+.delete-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+/* Edit button styles */
+.edit-button {
+  background-color: #28a745; /* Green background */
+  color: white; /* Text color */
+}
+
+.edit-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+.close-button {
+  background-color: #ca391c; /* Green background */
+  color: white; /* Text color */
+}
+.close-button:disabled {
+  background-color: #b0d4ff; /* Light green when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
+}
+/* Button hover effects */
+.form-button:hover:not(:disabled) {
+  opacity: 0.8; /* Slightly transparent on hover */
+}
+
+.form-button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Custom focus outline */
+}
+
+
+
+
+
+/* __----------Form------------------------------- */
+
+.form-container {
+  max-width: 14000px; /* Container width for desktop-like form */
+  margin: 0 auto; /* Center the form */
+  padding: 5px;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  background-color: #f0f8ff; /* Light background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: flex; /* Use flexbox to align the fields in a row */
+  /*justify-content: space-between;  Space between the fields */
+  align-items: center; /* Align items vertically */
+}
+
+.form-group {
+  display: flex; /* Flexbox to align label and input */
+  flex-direction: column; /* Vertical alignment of label and input */
+  margin-right: 15px; /* Space between fields */
+}
+
+label {
+  width: 100%; /* Label width for alignment */
+  font-weight: bold;
+  color: #007bff; /* Label text color */
+}
+
+input.form-control {
+  padding: 5px 10px;
+  font-size: 14px;
+  height:25px;
+  width: 200px;
+  border: 1px solid #ccc; /* Input border */
+  border-radius: 4px;
+   /* Smaller width for input fields */
+}
+
+textarea.form-control
+{
+  padding: 5px 10px;
+  font-size: 14px;
+  width: 350px;
+  border: 1px solid #ccc; /* Input border */
+  border-radius: 4px; 
+}
+
+input.form-control:focus {
+  border-color: #007bff; /* Border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Custom focus outline */
+}
+
+.small-text-field {
+  width: 150px; /* Small width for text fields */
+}
+
+
+
+/* Change background color and text color for read-only inputs */
+input[readonly] {
+  background-color: #f9f9f9; /* Light grey background */
+  color: #333; /* Darker text for better visibility */
+  font-weight: bold; /* Emphasized text */
+  border: 1px solid #ccc; /* Add a subtle border */
+  cursor: not-allowed; /* Indicate the field is read-only */
+  padding: 5px; /* Add padding for better readability */
+  border-radius: 4px; /* Optional: rounded corners */
+}
+
+/* Prevent focus outline and shadow for read-only inputs */
+input[readonly]:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: none; /* Prevent shadow */
+}
+
+
+/*------------------Search Grid */
+.search-modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000; /* Modal is on top */
+}
+
+.search-container {
+position: relative; /* Relative positioning for close button */
+background: white;
+padding: 20px;
+border-radius: 8px;
+max-width: 600px;
+width: 90%;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+z-index: 1001; /* Ensure the container is above the background */
+}
+
+/* Close Button */
+.grdclose-button {
+position: absolute;
+top: -15px; /* Move the close button above the container */
+right: -15px; /* Move the close button to the right edge */
+background-color: #ff4d4d;
+color: white;
+border: none;
+border-radius: 50%;
+width: 35px;
+height: 35px;
+font-size: 24px;
+cursor: pointer;
+z-index: 1002; /* Close button is above all other content */
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.grdclose-button:hover {
+background-color: #e60000;
+}
+
+
+/* ---------Grid CSS------------- */
+/* Modal Styling */
+.grid-container {
+background-color: #f7f9fc; /* Light background for the container */
+padding: 5px;
+border-radius: 12px; /* Soft rounded corners */
+max-width: 100%;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+border: 1px solid #e0e0e0; /* Light border */
+}
+
+/* ag-Grid Styling */
+.ag-theme-alpine {
+border-radius: 8px; /* Rounded corners for the grid */
+border: 1px solid #d3d3d3; /* Light border for the grid */
+overflow: hidden;
+}
+
+.ag-theme-alpine .ag-header-cell {
+word-wrap: break-word;   /* Enable word wrapping */
+height: 30px;            /* Set a fixed height */
+text-align: left;        /* Align text to the left */
+display: flex;           /* Use flexbox for alignment */
+align-items: center;     /* Center vertically */
+}
+
+.ag-theme-alpine .ag-header-cell-text {
+white-space: normal;     /* Allow normal whitespace handling */
+word-wrap: break-word;   /* Enable word wrapping */
+max-height: 30px;        /* Set a max height that matches header height */
+line-height: 1.2;        /* Control line spacing */
+font-size: 12px;         /* Maintain the same font size */
+overflow: hidden;        /* Hide any overflow text */
+text-overflow: ellipsis; /* Optionally add ellipsis for overflow text */
+}
+
+
+
+
+
+
+
+/* Cell Borders and Styles */
+.custom-grid-style .ag-cell, 
+.custom-grid-style .ag-header-cell {
+border-right: 1px solid #e0e0e0; /* Light borders for cell separation */
+border-bottom: 1px solid #e0e0e0;
+
+
+
+}
+
+
+
+
+.custom-grid-style .ag-row:first-child .ag-cell {
+border-top: 1px solid #e0e0e0;
+}
+
+.custom-grid-style .ag-cell:first-child, 
+.custom-grid-style .ag-header-cell:first-child {
+border-left: 1px solid #e0e0e0;
+}
+
+/* Floating Filter Row */
+.ag-theme-alpine .ag-floating-filter {
+background-color: #f1f1f1;
+color: #555;
+}
+
+/* Pagination Styling */
+.ag-theme-alpine .ag-paging-panel {
+background-color: #f7f9fc; /* Match the container color */
+border-top: 1px solid #dcdcdc;
+padding: 10px;
+text-align: center;
+}
+
+.ag-theme-alpine .ag-paging-button {
+background-color: #fff;
+border: 1px solid #d3d3d3;
+padding: 5px 10px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.ag-theme-alpine .ag-paging-button:hover {
+background-color: #f0f0f0;
+}
+
+
+
+/* styles.css or your component-specific CSS file */
+.custom-editable-cell {
+background-color: #e7f4ff; /* Light blue background */
+border: 1px solid #007bff; /* Blue border */
+}
+
+
+
+.grid-footer {
+background-color: #f9f9f9; /* Light background */
+border-top: 1px solid #ccc; /* Border for separation */
+}
+
+
+
+
+
+
+/* Floating Filter Container */
+.ag-theme-alpine .ag-floating-filter {
+  display: flex;             /* Use flexbox for alignment */
+  align-items: center;       /* Center vertically */
+  height: 30px;              /* Set a fixed height */
+  padding: 0 5px;           /* Add some horizontal padding */
+  background-color: #f1f1f1; /* Background color for floating filter */
+}
+
+/* Floating Filter Input */
+.ag-theme-alpine .ag-floating-filter-input {
+  flex: 1;                   /* Allow the input to grow */
+  font-size: 12px;          /* Maintain the same font size */
+  line-height: 1.2;         /* Control line height */
+  border: 1px solid #ccc;   /* Border for the input */
+  border-radius: 4px;       /* Rounded corners */
+  padding: 5px;             /* Padding for input */
+  height: 100%;             /* Full height to match the container */
+}
+
+/* Floating Filter Text */
+.ag-theme-alpine .ag-floating-filter-text {
+  white-space: nowrap;       /* Prevent text from wrapping */
+  overflow: hidden;          /* Hide any overflow text */
+  text-overflow: ellipsis;   /* Show ellipsis for overflow text */
+}
+
+
+/* Ensure consistent cell borders */
+.ag-theme-alpine .ag-cell {
+border: 1px solid #e0e0e0; /* Add borders to all cells */
+}
+
+/* Specific styles for header cells */
+.ag-theme-alpine .ag-header-cell {
+border-bottom: 2px solid #007bff; /* Distinct bottom border for header */
+}
+
+/* Hover effect on row */
+.ag-theme-alpine .ag-row:hover {
+background-color: #f0f0f0; /* Change background on hover */
+}
+
+/* Selected row styling */
+.ag-theme-alpine .ag-row-selected {
+background-color: #007bff; /* Selected row background color */
+color: white; /* Change text color for better contrast */
+}
+
+/* Editable cell styling */
+.custom-editable-cell {
+background-color: #e7f4ff; /* Light blue background for editable cells */
+border: 1px solid #007bff; /* Blue border for editable cells */
+}
+
+/* Ensure editable cells maintain visibility on hover */
+.ag-theme-alpine .ag-row:hover .custom-editable-cell {
+background-color: #add8e6; /* Lighter blue for editable cells on hover */
+}
+
+/* Ensure editable cells maintain visibility when row is selected */
+.ag-theme-alpine .ag-row-selected .custom-editable-cell {
+background-color: #80c8ff; /* Adjusted background for editable cells when row is selected */
+color: #000; /* Change text color for better contrast */
+}
+
+/* Optional: Selected cell styling */
+.ag-theme-alpine .ag-cell:hover {
+background-color: rgba(0, 123, 255, 0.3); /* Light background on hover for cells */
+}
+
+
+
+
+
+
+/*Dropdown*/
+
+/* General form styling */
+
+
+
+
+/* Dropdown styling */
+/* Main Dropdown Styling */
+/* Remove default padding for ordered and unordered lists */
+ol, ul {
+padding-left: 0rem; /* No padding on the left */
+}
+
+/* Main Dropdown Styling */
+.p-dropdown {
+width: 200px;
+height:25px;
+width: 200px;
+border-radius: 5px;
+border: 1px solid #ccc;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+position: relative;
+background-color: white; /* Set dropdown background to white */
+
+}
+
+/* Focus State */
+.p-dropdown:focus {
+
+box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Invalid State */
+.is-invalid {
+border-color: #dc3545 !important;
+
+
+}
+
+/* Placeholder Styling - Fully Left-aligned */
+.p-dropdown-label {
+text-align: left;
+padding: 0px 10px; 
+font-size: 1em;
+color: #666;
+
+ /* Consistent padding for placeholder */
+margin: 0; /* No additional margin */
+}
+
+/* Dropdown Panel Styling */
+.p-dropdown-panel {
+  
+background-color: rgba(245, 246, 226, 0.8); /* Set the desired background color for the dropdown panel */
+width: 100%;
+max-width: 300px;
+padding: 0; /* Remove extra padding */
+border-radius: 15px;
+scrollbar-width: thin; /* Make the scrollbar thinner */
+scrollbar-color: #d3d4d4 rgb(247, 246, 245); /* Thumb color and track color */
+}
+
+/* Dropdown Items - Same Padding */
+.p-dropdown-item {
+padding: 8px; /* Consistent padding on all sides */
+text-align: left;
+}
+
+/* Hover Effect for Items */
+.p-dropdown-item:hover {
+
+color: rgba(163, 172, 5, 0.8);
+}
+
+/* Filter Text Box Styling - Consistent with Dropdown Items */
+.p-dropdown-filter {
+padding: 0px; /* Match item padding */
+margin-left: 5px;
+border: 2px solid #ced4da;
+border-radius: 4px;
+width: calc(90% - 18px); /* Account for padding */
+font-size: 0.85em;
+box-sizing: border-box;
+}
+
+/* Filter Icon Styling */
+.p-dropdown-filter-icon {
+
+padding-left:5px;
+font-size: 0.8em;
+}
+
+/* Small Cross Icon for Clear */
+.p-dropdown-clear-icon {
+  display: none;
+}
+
+/* Add a subtle hover effect */
+.p-dropdown-clear-icon:hover {
+  color: #333; /* Darken on hover */
+  transform: translateY(-50%) scale(1.2); /* Slightly larger on hover */
+}
+/* Dropdown Trigger Icon Styling */
+.p-dropdown .p-dropdown-trigger {
+position: absolute;
+right: 10px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 0.9em;
+
+}
+
+
+
+/* Apply styles to the scrollbar for webkit browsers (Chrome, Safari) */
+.p-dropdown-panel::-webkit-scrollbar {
+width: 2px; /* Set width of the scrollbar */
+}
+
+.p-dropdown-panel::-webkit-scrollbar-thumb {
+border-radius: 50px; /* Round the corners of the scrollbar */
+background: #007bff; /* Color of the scrollbar thumb */
+}
+
+.p-dropdown-panel::-webkit-scrollbar-track {
+border-radius: 50px; /* Round the corners of the track */
+background: #f0f8ff; /* Background color of the scrollbar track */
+}
+
+
+
+/* //loading */
+/* Enhanced Spinner for Loading Indicator */
+.loading-container {
+  position: relative; /* This ensures the overlay stays within the container */
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4); /* Slightly darker overlay for focus */
+  z-index: 10;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid transparent; /* Transparent borders for smooth gradient */
+  border-top: 6px solid #007bff; /* Primary color for the top border */
+  border-right: 6px solid #00d4ff; /* Secondary gradient color */
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); /* Glow effect for a modern look */
+}
+
+/* Spin Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 0 0 20px rgba(223, 239, 243, 0.7); /* Pulsating glow midway */
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -7,8 +7,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  
-
-      protected baseUrl = 'https://localhost:7073/api'; // apni API URL
+    protected baseUrl = 'https://localhost:7073/api'; // apni API URL
   constructor(protected http: HttpClient) {}  // accessible to child classes 
 }
