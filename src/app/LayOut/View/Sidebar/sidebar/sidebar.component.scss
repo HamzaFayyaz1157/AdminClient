@@ -1,0 +1,39 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  color: #f4f4f4;
+  background: linear-gradient(145deg, #1e293b, #334155);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.3s ease;
+  transform: translateX(-220px); /* slightly visible edge */
+  opacity: 0.9;
+}
+
+/* When sidebar is active/open */
+.sidebar.active {
+  transform: translateX(0);
+  opacity: 1;
+  box-shadow: 6px 0 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Hover effect */
+.sidebar:hover {
+  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.4);
+  opacity: 1;
+}
+
+
+/* Optional: Add some spacing and font style inside */
+.sidebar h1 {
+  font-size: 1.3rem;
+  padding: 20px;
+  font-weight: 600;
+  color: #f8fafc;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+}

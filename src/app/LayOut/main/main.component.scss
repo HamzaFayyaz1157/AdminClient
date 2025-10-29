@@ -1,92 +1,126 @@
+/* MAIN WRAPPER */
 .main-wrapper {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f3f4f7, #dfe9f3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+  min-height: 80vh;
+  background: linear-gradient(135deg, rgba(222, 76, 115, 0.9), rgba(219, 234, 82, 0.9));
+  font-family: 'Poppins', sans-serif;
+  margin: 30px auto;
+  padding: 80px 50px;
+  border-radius: 28px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
+.main-wrapper:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
 
-  .app-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2f3640;
-    letter-spacing: 1px;
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-/* Loader */
-.loading {
+/* MENU CARDS */
+.menu-card {
+  border-radius: 1.4rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.35s ease;
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  padding: 30px 15px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* CARD VARIANTS (soft pastel tones) */
+.menu-card:nth-child(1) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 228, 235, 0.7));
+  border: 1px solid rgba(222, 76, 115, 0.3);
+  box-shadow: 0 10px 20px rgba(222, 76, 115, 0.2);
+}
+.menu-card:nth-child(2) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(252, 253, 224, 0.7));
+  border: 1px solid rgba(219, 234, 82, 0.3);
+  box-shadow: 0 10px 20px rgba(219, 234, 82, 0.2);
+}
+.menu-card:nth-child(3) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 232, 250, 0.7));
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
+}
+.menu-card:nth-child(4) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 243, 220, 0.7));
+  border: 1px solid rgba(240, 98, 146, 0.3);
+  box-shadow: 0 10px 20px rgba(240, 98, 146, 0.2);
+}
+
+/* Hover Effect */
+.menu-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: brightness(1.12);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* ICON */
+.menu-icon {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.08));
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #555;
-
-  .spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #ddd;
-    border-top-color: #2575fc;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 0.8rem;
-  }
+  margin: 0 auto 18px auto;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
 }
 
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
+.menu-icon i {
+  font-size: 2.6rem;
+  color: #ad1375;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  transition: all 0.4s ease;
 }
 
-/* Grid Layout */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1000px;
+/* Icon Hover Glow */
+.menu-card:hover .menu-icon {
+  background: linear-gradient(135deg, #de4c73, #dbea52);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 45px rgba(222, 76, 115, 0.35);
+}
+.menu-card:hover .menu-icon i {
+  transform: scale(1.2);
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 1);
 }
 
-.menu-card {
-  background: white;
-  border-radius: 16px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-8px);
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    box-shadow: 0 8px 18px rgba(37, 117, 252, 0.3);
-  }
-
-  .menu-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .menu-id {
-    font-weight: 600;
-    font-size: 1.1rem;
-  }
-
-  .menu-title {
-    font-size: 1rem;
-    opacity: 0.9;
-  }
+/* TITLE */
+.menu-title {
+  color: #ad1375;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: all 0.3s ease;
 }
 
-.no-data {
-  color: #999;
-  font-size: 1.1rem;
-  margin-top: 2rem;
+.menu-card:hover .menu-title {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  transform: scale(1.03);
 }

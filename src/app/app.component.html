@@ -1,3 +1,10 @@
+<app-header 
+  [showToggle]="showToggle" 
+  (toggleSidebar)="onToggleSidebar()">
+</app-header>
 
+<app-sidebar [isOpen]="sidebarOpen"></app-sidebar>
 
-<router-outlet></router-outlet>
+<div class="main-content" [class.shifted]="sidebarOpen">
+  <router-outlet></router-outlet>
+</div>

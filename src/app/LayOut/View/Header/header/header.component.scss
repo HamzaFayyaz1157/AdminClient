@@ -1,0 +1,43 @@
+.app-header {
+  background: linear-gradient(135deg, rgba(222, 76, 115, 0.9), rgba(219, 234, 82, 0.9));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+/* Title */
+.app-title {
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Menu button */
+.menu-toggle-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+}
+.menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* Icons on right side */
+.user-section i {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff !important;
+}
+
+.hover-glow:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}

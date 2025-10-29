@@ -1,25 +1,33 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainService } from '../../Services/SetUp/Main/main.service'; // adjust path as needed
+import { MainService } from '../../Services/SetUp/Main/main.service';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent implements OnInit  {
+export class MainComponent implements OnInit, OnDestroy {
 
   alert = 'Main Component Loaded Successfully!';
-  
-menus: any[] = [];;
+  menus: any[] = [];
   loading = true;
 
-  constructor(private MainService: MainService) {}
+  constructor(
+    private MainService: MainService,
+    private router: Router,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit(): void {
-     console.log(this.alert); // ✅ now inside lifecycle hook
+    console.log(this.alert);
+
+    // 👇 Hide the toggle button on this page
+    const toggleBtn = document.querySelector('.menu-toggle-btn');
+    if (toggleBtn) this.renderer.setStyle(toggleBtn, 'display', 'none');
 
     this.MainService.getRootMenus().subscribe({
       next: (res: any) => {
@@ -35,4 +43,24 @@ menus: any[] = [];;
       }
     });
   }
+
+  ngOnDestroy(): void {
+    // 👇 Show it again when leaving MainComponent
+    const toggleBtn = document.querySelector('.menu-toggle-btn');
+    if (toggleBtn) this.renderer.removeStyle(toggleBtn, 'display');
+  }
+
+  onMenuClick(menu: any): void {
+    if (menu.menuUrl && menu.menuUrl.trim() !== '') {
+      this.router.navigateByUrl(menu.menuUrl);
+    } else {
+      alert('No route defined for this menu!');
+    }
+  }
+
+  sidebarOpen = false;
+
+onToggleSidebar() {
+  this.sidebarOpen = !this.sidebarOpen;
+}
 }
