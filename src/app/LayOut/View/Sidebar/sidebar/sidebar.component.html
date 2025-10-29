@@ -1,5 +1,38 @@
-<div class="sidebar" [class.active]="isOpen">
-  <!-- Blank sidebar for now -->
+<!-- <div class="sidebar" [class.active]="isOpen">
+
 <h1>Hellllooooooooooo</h1>
+</div> -->
+
+<div class="sidebar" [class.active]="isOpen">
+  <div class="sidebar-header">
+    <h3>📂 Menus</h3>
+  </div>
+
+  <ul class="menu-list">
+    <li *ngFor="let menu of menuList" class="menu-item">
+      <div class="menu-title" (click)="onMenuClick(menu)">
+        <span>📁 {{ menu.menuTitle }}</span>
+        <span *ngIf="menu.listMenu?.length" class="arrow">▸</span>
+      </div>
+
+      <!-- Recursive child list -->
+      <ul *ngIf="menu.listMenu?.length && menu.expanded" class="submenu-list">
+        <li *ngFor="let sub of menu.listMenu" class="submenu-item">
+          <div class="menu-title" (click)="onChildMenuClick(sub)">
+            {{ sub.menuTitle }}
+          </div>
+
+          <!-- If submenus inside submenu -->
+          <ul *ngIf="sub.listMenu?.length && sub.expanded" class="submenu-list">
+            <li *ngFor="let subsub of sub.listMenu" class="submenu-item">
+              <div class="menu-title" (click)="onChildMenuClick(subsub)">
+                {{ subsub.menuTitle }}
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 

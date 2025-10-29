@@ -50,14 +50,33 @@ export class MainComponent implements OnInit, OnDestroy {
     if (toggleBtn) this.renderer.removeStyle(toggleBtn, 'display');
   }
 
-  onMenuClick(menu: any): void {
-    if (menu.menuUrl && menu.menuUrl.trim() !== '') {
-      this.router.navigateByUrl(menu.menuUrl);
-    } else {
-      alert('No route defined for this menu!');
-    }
-  }
+// onMenuClick(menu: any): void {
+//   console.log('Menu clicked:', menu.menuid);
 
+//   if (menu.menuUrl && menu.menuUrl.trim() !== '') {
+//     // Navigate to the menu route with query params
+//     this.router.navigate([menu.menuUrl], { 
+//       queryParams: { menuid: menu.menuid }
+//     });
+
+//     // Send menuid to SidebarService (or MainService)
+//     this.MainService.setSelectedMenuId(menu.menuid);
+
+//   } else {
+//     alert('No route defined for this menu!');
+//   }
+// }
+onMenuClick(menu: any): void {
+  if (menu.menuUrl && menu.menuUrl.trim() !== '') {
+    // navigate inside layout routes
+    this.router.navigate([menu.menuUrl], { 
+      queryParams: { menuid: menu.menuid }
+    });
+    this.MainService.setSelectedMenuId(menu.menuid);
+  } else {
+    alert('No route defined for this menu!');
+  }
+}
   sidebarOpen = false;
 
 onToggleSidebar() {

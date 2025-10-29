@@ -1,39 +1,139 @@
+/* Base Sidebar */
 .sidebar {
   width: 250px;
   height: 100vh;
-  color: #f4f4f4;
-  background: linear-gradient(145deg, #1e293b, #334155);
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: #f1f5f9;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.3s ease;
-  transform: translateX(-220px); /* slightly visible edge */
+  backdrop-filter: blur(12px);
+  overflow-y: auto;
+  padding: 12px 0;
+  transform: translateX(-220px); /* Keep partially visible */
   opacity: 0.9;
+  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.3s ease;
 }
 
-/* When sidebar is active/open */
+/* Keep this exactly as you said ✅ */
 .sidebar.active {
   transform: translateX(0);
   opacity: 1;
   box-shadow: 6px 0 25px rgba(0, 0, 0, 0.35);
 }
 
-/* Hover effect */
+/* Hover overall effect */
 .sidebar:hover {
-  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.45);
   opacity: 1;
 }
 
-
-/* Optional: Add some spacing and font style inside */
-.sidebar h1 {
+/* Header */
+.sidebar-header {
+  text-align: center;
+  padding: 18px;
   font-size: 1.3rem;
-  padding: 20px;
   font-weight: 600;
   color: #f8fafc;
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 10px;
+  background: linear-gradient(to right, #1e3a8a, #2563eb);
+  border-radius: 14px;
+  margin: 0 10px 12px 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Main menu list */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 6px 10px;
+}
+
+/* Menu title (clickable area) */
+.menu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin: 4px 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+}
+
+/* Hover glow for menu */
+.menu-title:hover {
+  background: linear-gradient(145deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.25));
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+  transform: translateX(4px);
+}
+
+/* Active or expanded state */
+.menu-title.active,
+.menu-title:active {
+  background: linear-gradient(145deg, #2563eb, #1e40af);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Submenu list styling */
+.submenu-list {
+  margin-left: 12px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-left: 10px;
+  animation: slideDown 0.3s ease forwards;
+}
+
+/* Submenu item */
+.submenu-item .menu-title {
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  color: #cbd5e1;
+}
+
+.submenu-item .menu-title:hover {
+  background: rgba(59, 130, 246, 0.15);
+  color: #f1f5f9;
+}
+
+/* Arrow icon rotation */
+.arrow {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  transition: transform 0.25s ease;
+}
+
+.menu-item .menu-title.expanded .arrow {
+  transform: rotate(90deg);
+  opacity: 1;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
