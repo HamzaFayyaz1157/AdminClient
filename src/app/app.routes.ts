@@ -10,4 +10,5 @@ export const routes: Routes = [
   { path: 'company', component: CompanyComponent },
   { path: 'location', component: LocationComponent },
   { path: '**', redirectTo: '' }
+
 ];
